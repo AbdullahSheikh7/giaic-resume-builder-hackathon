@@ -1,0 +1,31 @@
+.modal {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  right: 0;
+  top: 110%;
+  gap: 15px;
+  align-items: center;
+  display: none;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal input {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.modal button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

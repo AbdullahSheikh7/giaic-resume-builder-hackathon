@@ -1,0 +1,99 @@
+.resume-wrapper {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: 20px;
+}
+
+.resume-container {
+  width: 800px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid gray;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.08), 0px 5px 4px rgba(3, 7, 18, 0.08),
+    0px 12px 9px rgba(3, 7, 18, 0.08), 0px 20px 15px rgba(3, 7, 18, 0.08),
+    0px 32px 24px rgba(3, 7, 18, 0.08);
+}
+
+.resume {
+  background-color: white;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  margin-bottom: 30px;
+}
+
+.profile-info h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.profile-info h2 {
+  font-size: 18px;
+  color: #666;
+}
+
+.resume-content {
+  display: flex;
+  gap: 40px;
+}
+
+.left-column {
+  flex: 1;
+}
+
+.right-column {
+  flex: 2;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #4285f4;
+}
+
+.education-item,
+.experience-item,
+.language-item,
+.skill-item {
+  margin-bottom: 15px;
+}
+
+.year {
+  color: #666;
+  font-size: 14px;
+}
+
+.language,
+.degree,
+.position {
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.proficiency,
+.university,
+.company {
+  color: #666;
+}
+
+.contact-item {
+  margin-bottom: 10px;
+}
+
+.contact-item div:first-child {
+  color: #666;
+  font-size: 14px;
+}

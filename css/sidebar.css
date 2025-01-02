@@ -1,0 +1,84 @@
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+  background-color: white;
+  border-right: 1px solid #e0e0e0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.section {
+  margin-bottom: 15px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.section-header:hover {
+  background-color: #f0f0f0;
+}
+
+.section-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  display: none;
+}
+
+.section-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-content.active {
+  display: flex;
+}
+
+.section-content input,
+.section-content select,
+.section-content textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: "Outfit", sans-serif;
+}
+
+.section-content textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.date-inputs > * {
+  width: 50%;
+}
+
+.add-more {
+  color: #4285f4;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
