@@ -48,7 +48,7 @@ if (storedData) {
         endYear: "",
       },
     ],
-    skills: [],
+    skills: [""],
     languages: [{
       language: "",
       proficiencyLevel: ""

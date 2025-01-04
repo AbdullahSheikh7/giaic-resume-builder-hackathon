@@ -63,6 +63,8 @@ const renderSidebar = () => {
   </div>
 </div>`;
     workExperienceIndex++;
+    if (workExperienceIndex === resumeData.workExperience.length) continue
+    workHtml += "<hr>"
   }
 
   for (educationItem of resumeData.education) {
@@ -96,6 +98,8 @@ const renderSidebar = () => {
   </div>
 </div>`;
     educationIndex++;
+    if (educationIndex === resumeData.education.length) continue
+    educationHtml += "<hr>"
   }
 
   for (skillItem of resumeData.skills) {
@@ -109,6 +113,8 @@ const renderSidebar = () => {
   />
 </div>`;
     skillsIndex++;
+    if (skillsIndex === resumeData.skills.length) continue
+    skillsHtml += "<hr>"
   }
 
   for (languageItem of resumeData.languages) {
@@ -129,6 +135,8 @@ const renderSidebar = () => {
   </select>
 </div>`;
     languagesIndex++;
+    if (languagesIndex === resumeData.languages.length) continue
+    languagesHtml += "<hr>"
   }
 
   const sidebar = `
@@ -240,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectionFields = button.parentElement.children[button.parentElement.children.length - 2];
       const newSectionFields = sectionFields.cloneNode(true)
       const children = newSectionFields.querySelectorAll("input, select, textarea")
+
       children.forEach(e => {
         const name = e.name.split(".")
         e.value = ""
@@ -252,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resumeData[children[0].name.split(".")[0]].push(resumeDataPrototype[children[0].name.split(".")[0]])
 
       const resume = document.querySelector(".resume-container")
-      resume.innerHTML = renderResume()
+      resume.innerHTML = renderResume(resumeData)
     });
   });
 });
