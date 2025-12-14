@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder - Create Professional Resumes in Minutes</title>
     <style>
+        html{
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +28,6 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
         header {
             background: #fff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -38,7 +41,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* Fixed padding to be more consistent */
             padding: 1rem 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -93,11 +95,9 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: #333;
-            /* Added padding for better touch target */
             padding: 0.5rem;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 120px 0 80px;
@@ -148,7 +148,6 @@
             color: #4285f4;
         }
 
-        /* Features Section */
         .features {
             padding: 80px 0;
             background: #fff;
@@ -217,7 +216,6 @@
             line-height: 1.6;
         }
 
-        /* How It Works Section */
         .how-it-works {
             padding: 80px 0;
             background: #f8f9fa;
@@ -260,7 +258,6 @@
             color: #666;
         }
 
-        /* CTA Section */
         .cta-section {
             padding: 80px 0;
             background: #4285f4;
@@ -296,7 +293,6 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
         footer {
             background: #333;
             color: white;
@@ -335,9 +331,7 @@
             color: #ccc;
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
-            /* Fixed mobile navigation positioning and animation */
             nav {
                 padding: 1rem 15px;
             }
@@ -368,7 +362,6 @@
                 display: block;
             }
 
-            /* Hide desktop CTA button on mobile to make room */
             .cta-button {
                 display: none;
             }
@@ -408,7 +401,6 @@
                 padding: 0 15px;
             }
 
-            /* Adjusted nav padding for smaller screens */
             nav {
                 padding: 1rem 15px;
             }
@@ -569,7 +561,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -578,7 +569,6 @@
             mobileMenuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close mobile menu when clicking on a link
         navLinks.addEventListener('click', (e) => {
             if (e.target.tagName === 'A') {
                 navLinks.classList.remove('active');
@@ -586,36 +576,10 @@
             }
         });
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
                 navLinks.classList.remove('active');
                 mobileMenuToggle.textContent = '☰';
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = '#fff';
-                header.style.backdropFilter = 'none';
             }
         });
     </script>
