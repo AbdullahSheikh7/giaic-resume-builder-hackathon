@@ -1,4 +1,4 @@
-const storedData = JSON.parse(localStorage.getItem("resumeData"))
+const storedData = JSON.parse(localStorage.getItem("resumeData"));
 
 let resumeData;
 
@@ -18,8 +18,10 @@ const toQueryString = (obj) => {
   //   }
   // }
   // return `${window.location.origin}/resume.html?${query.join("&")}`;
-  return `${window.location.origin}/resume.html?resumeData=${encodeURIComponent(JSON.stringify(obj))}`;
-}
+  return `${
+    window.location.origin
+  }/app/resume.html?resumeData=${encodeURIComponent(JSON.stringify(obj))}`;
+};
 
 if (storedData) {
   resumeData = storedData;
@@ -30,7 +32,7 @@ if (storedData) {
       jobTitle: "",
       email: "",
       phone: "",
-      professionalSummary: ""
+      professionalSummary: "",
     },
     workExperience: [
       {
@@ -38,7 +40,7 @@ if (storedData) {
         company: "",
         startDate: "",
         endDate: "",
-      }
+      },
     ],
     education: [
       {
@@ -49,11 +51,13 @@ if (storedData) {
       },
     ],
     skills: [""],
-    languages: [{
-      language: "",
-      proficiencyLevel: ""
-    }]
-  }
+    languages: [
+      {
+        language: "",
+        proficiencyLevel: "",
+      },
+    ],
+  };
 }
 
 /* const renderResume = () => {
@@ -144,42 +148,43 @@ if (storedData) {
   return html
 } */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const resume = document.querySelector(".resume-container")
-  const shareLink = document.getElementById("share-link")
+document.addEventListener("DOMContentLoaded", () => {
+  const resume = document.querySelector(".resume-container");
+  const shareLink = document.getElementById("share-link");
 
-  resume.innerHTML = renderResume(resumeData)
-  document.querySelector(".sidebar").innerHTML = renderSidebar()
-  shareLink.value = toQueryString(resumeData)
+  resume.innerHTML = renderResume(resumeData);
+  document.querySelector(".sidebar").innerHTML = renderSidebar();
+  shareLink.value = toQueryString(resumeData);
 
-  const sidebar = document.querySelector(".sidebar .sections")
+  const sidebar = document.querySelector(".sidebar .sections");
 
-  sidebar.querySelector("select").addEventListener("change", e => {
-    shareLink.value = toQueryString(resumeData)
+  sidebar.querySelector("select").addEventListener("change", (e) => {
+    shareLink.value = toQueryString(resumeData);
 
-    resumeData.languages[e.target.name.split(".")[1]].proficiencyLevel = e.target.value
-    resume.innerHTML = renderResume(resumeData)
-  })
+    resumeData.languages[e.target.name.split(".")[1]].proficiencyLevel =
+      e.target.value;
+    resume.innerHTML = renderResume(resumeData);
+  });
 
   sidebar.addEventListener("input", (e) => {
-    shareLink.value = toQueryString(resumeData)
+    shareLink.value = toQueryString(resumeData);
 
-    const address = e.target.name.split(".")
+    const address = e.target.name.split(".");
 
     if (address.length === 2) {
       const [section, field] = address;
       resumeData[section][field] = e.target.value;
-      resume.innerHTML = renderResume(resumeData)
+      resume.innerHTML = renderResume(resumeData);
     } else if (address.length === 3) {
       const [section, index, field] = address;
       resumeData[section][index][field] = e.target.value;
-      resume.innerHTML = renderResume(resumeData)
+      resume.innerHTML = renderResume(resumeData);
     }
-  })
+  });
 
-  const btnDownload = document.getElementById("download-resume")
-  btnDownload.addEventListener("click", e => {
+  const btnDownload = document.getElementById("download-resume");
+  btnDownload.addEventListener("click", (e) => {
     const element = document.getElementById("resume");
     html2pdf(element, { filename: "resume.pdf" });
-  })
+  });
 });
